@@ -9,8 +9,13 @@ const guildId = process.env['DISCORD_GUILD_ID']
 
 import { pingCommnand } from './src/commands/ping.js'
 import { gptCommand } from './src/commands/gpt.js'
+import { dalleCommand } from './src/commands/dalle.js'
 
-const commands = [pingCommnand.data.toJSON(), gptCommand.data.toJSON()]
+const commands = [
+  pingCommnand.data.toJSON(),
+  gptCommand.data.toJSON(),
+  dalleCommand.data.toJSON(),
+]
 
 // Construct and prepare an instance of the REST module
 const rest = new REST({ version: '10' }).setToken(token)
