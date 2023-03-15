@@ -3,6 +3,7 @@ import { Client, Collection, Events, GatewayIntentBits } from 'discord.js'
 
 import { pingCommnand } from './commands/ping.js'
 import { gptCommand } from './commands/gpt.js'
+import { dalleCommand } from './commands/dalle.js'
 
 dotenv.config()
 const token = process.env['DISCORD_BOT_TOKEN']
@@ -12,6 +13,7 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds] })
 client.commands = new Collection()
 client.commands.set(pingCommnand.data.name, pingCommnand)
 client.commands.set(gptCommand.data.name, gptCommand)
+client.commands.set(dalleCommand.data.name, dalleCommand)
 
 client.once(Events.ClientReady, (c) => {
   console.log(`Bot is ready! Logged in as ${c.user.tag}`)
