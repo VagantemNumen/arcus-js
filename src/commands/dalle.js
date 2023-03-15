@@ -1,4 +1,4 @@
-import { SlashCommandBuilder } from 'discord.js'
+import { EmbedBuilder, SlashCommandBuilder } from 'discord.js'
 import { getImage } from '../openai/dalle.js'
 
 export const dalleCommand = {
@@ -15,6 +15,9 @@ export const dalleCommand = {
     await interaction.deferReply()
     const prompt = interaction.options.getString('prompt')
     let reply = await getImage(prompt)
-    await interaction.editReply(reply)
+
+    const embed = new EmbedBuilder().setTitle(prompt).setImage(reply)
+
+    await interaction.followUp({ embeds: [embed] })
   },
 }
