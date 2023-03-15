@@ -6,7 +6,8 @@
   "main": "src/app.js",
   "scripts": {
     "debug": "nodemon src/app.js",
-    "lint": "eslint --fix src/*"
+    "lint": "eslint --fix src/*",
+    "dc": "node ./deploy-commands.js"
   },
   "author": "Ahmed Misbah",
   "license": "MIT",
@@ -19,6 +20,7 @@
   },
   "dependencies": {
     "discord.js": "^14.8.0",
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.0.3",
+    "openai": "^3.2.1"
   }
 }
