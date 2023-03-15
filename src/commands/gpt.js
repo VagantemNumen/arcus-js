@@ -12,7 +12,10 @@ export const gptCommand = {
         .setRequired(true),
     ),
   execute: async (interaction) => {
+    await interaction.deferReply()
+
     const prompt = interaction.options.getString('prompt')
-    await interaction.reply(await getChat(prompt))
+    const reply = await getChat(prompt)
+    await interaction.editReply(reply)
   },
 }
