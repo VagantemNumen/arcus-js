@@ -13,9 +13,11 @@ export const gptCommand = {
     ),
   execute: async (interaction) => {
     await interaction.deferReply()
-
     const prompt = interaction.options.getString('prompt')
-    const reply = await getChat(prompt)
-    await interaction.editReply(reply)
+    let reply = await getChat(prompt)
+    reply = `**Arcus: ** ${reply.trim()}`
+    await interaction.editReply(
+      `**${interaction.user.username}:** ${prompt}\n${reply}`,
+    )
   },
 }
