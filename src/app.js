@@ -9,7 +9,9 @@ import { voiceAICommand } from './commands/voiceai.js'
 dotenv.config()
 const token = process.env['DISCORD_BOT_TOKEN']
 
-const client = new Client({ intents: [GatewayIntentBits.Guilds] })
+const client = new Client({
+  intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildVoiceStates],
+})
 
 client.commands = new Collection()
 client.commands.set(pingCommnand.data.name, pingCommnand)
@@ -49,4 +51,4 @@ client.on(Events.InteractionCreate, async (interaction) => {
 
 client.login(token)
 
-// https://discord.com/oauth2/authorize?client_id=174514747482439680&scope=applications.commands%20bot&permissions=397321283584
+// https://discord.com/oauth2/authorize?client_id=174514747482439680&scope=applications.commands%20bot&permissions=1099511103440
